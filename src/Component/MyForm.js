@@ -28,8 +28,36 @@ const MyForm= () => {
         }
     }
 
+    const getRequestTemplate = () => {
+        const urlParams = new URLSearchParams(params);
+        const request = new Request('http://localhost:8080/testing-web-app/rest/testGet?' + urlParams.toString());
+        console.log(request);
+
+        fetch(request)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    }
+
     const handleSubmit = () => {
-        console.log(params);
+        const request = new Request('http://localhost:8080/testing-web-app/rest/testPost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params),
+            mode: 'cors'
+        });
+        console.log(request);
+
+        fetch(request)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
     }
 
     return (
