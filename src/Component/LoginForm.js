@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Form, Button } from "react-bootstrap";
 
-const MyForm= () => {
+const LoginForm= () => {
     const [params, setParams] = useState({
         email: "",
         password: "",
@@ -26,19 +26,6 @@ const MyForm= () => {
                 }
             );
         }
-    }
-
-    const getRequestTemplate = () => {
-        const urlParams = new URLSearchParams(params);
-        const request = new Request('http://localhost:8080/testing-web-app/rest/testGet?' + urlParams.toString());
-        console.log(request);
-
-        fetch(request)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-            });
     }
 
     const handleSubmit = () => {
@@ -77,11 +64,11 @@ const MyForm= () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remember me" name="checkbox" value={params.checkbox} onChange={(e) => handleChange(e)} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
+            <Button variant="primary" onClick={handleSubmit}>
                 Submit
             </Button>
         </Form>
     );
 }
 
-export default MyForm;
+export default LoginForm;

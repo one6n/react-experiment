@@ -1,13 +1,15 @@
 import './App.css';
-import Navbar from './Component/Navbar';
 import { Container } from 'react-bootstrap';
-import MyForm from './Component/MyForm';
+import Navbar from './Component/Navbar';
+import LoginForm from './Component/LoginForm';
+import UploadFileForm from './Component/UploadFileForm';
 
 const App = () => {
   return (
     <Container>
       <Navbar />
-      <MyForm /> 
+      { true && <LoginForm /> }
+      { true && <UploadFileForm /> }
     </Container>
   );
 }
