@@ -1,0 +1,2 @@
+docker build -f Dockerfile -t react-experiment:prod .
+docker run -it --rm -p 3000:80 react-experiment:prod

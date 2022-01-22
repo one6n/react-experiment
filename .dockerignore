@@ -1,0 +1,8 @@
+*/node_modules/
+*/build/
+*/.git/
+*/nginx
+.gitignore
+Dockerfile
+dockerUse.txt
+README.md
